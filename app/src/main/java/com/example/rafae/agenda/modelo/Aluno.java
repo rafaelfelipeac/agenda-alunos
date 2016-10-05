@@ -1,9 +1,11 @@
 package com.example.rafae.agenda.modelo;
 
+import java.io.Serializable;
+
 /**
  * Created by rafae on 04/10/2016.
  */
-public class Aluno {
+public class Aluno implements Serializable{
     private Long id;
     private String nome;
     private String endereco;
@@ -61,6 +63,6 @@ public class Aluno {
 
     @Override
     public String toString() {
-        return getId() + " - " + getNome();
+        return getNome();
     }
 }

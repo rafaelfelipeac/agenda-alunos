@@ -16,6 +16,7 @@ import com.example.rafae.agenda.modelo.Aluno;
 public class FormularioActivity extends AppCompatActivity {
 
     private FormularioHelper helper;
+    private Aluno aluno;
 
     @Override
 
@@ -24,6 +25,13 @@ public class FormularioActivity extends AppCompatActivity {
         setContentView(R.layout.activity_formulario);
 
         helper = new FormularioHelper(this);
+
+        Intent intent = getIntent();
+        aluno = (Aluno) intent.getSerializableExtra("aluno");
+        if(aluno != null)
+        {
+            helper.Preenche(aluno);
+        }
     }
 
     @Override
@@ -41,9 +49,18 @@ public class FormularioActivity extends AppCompatActivity {
 
                 Aluno aluno = helper.pegaAluno();
                 AlunoDAO dao = new AlunoDAO(this);
-                dao.Inserir(aluno);
+
+                if(aluno.getId() != null) {
+                    dao.Alterar(aluno);
+                    Toast.makeText(FormularioActivity.this, "Aluno editado.", Toast.LENGTH_SHORT).show();
+                }
+                else {
+                    dao.Inserir(aluno);
+                    Toast.makeText(FormularioActivity.this, "Aluno criado.", Toast.LENGTH_SHORT).show();
+                }
                 dao.close();
-                Toast.makeText(FormularioActivity.this, "Aluno "+aluno.getNome()+ "salvo.", Toast.LENGTH_SHORT).show();
+
+
                 finish();
                 break;
         }
