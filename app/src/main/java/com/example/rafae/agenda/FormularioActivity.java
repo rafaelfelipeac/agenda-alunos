@@ -1,10 +1,14 @@
 package com.example.rafae.agenda;
 
+import android.Manifest;
+import android.annotation.TargetApi;
 import android.app.Activity;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
+import android.os.Build;
 import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -24,15 +28,21 @@ import java.io.File;
 public class FormularioActivity extends AppCompatActivity {
 
     public static final int CODIGO_CAMERA = 567;
+    public static final int CODIGO_SMS = 678;
+
     private FormularioHelper helper;
     private Aluno aluno;
     private String caminhoFoto;
 
+    @TargetApi(Build.VERSION_CODES.M)
     @Override
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_formulario);
+
+        if(checkSelfPermission(Manifest.permission.RECEIVE_SMS) != PackageManager.PERMISSION_GRANTED)
+            requestPermissions(new String[] {Manifest.permission.RECEIVE_SMS}, CODIGO_SMS);
 
         helper = new FormularioHelper(this);
 
