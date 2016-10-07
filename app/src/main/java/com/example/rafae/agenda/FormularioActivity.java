@@ -41,8 +41,8 @@ public class FormularioActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_formulario);
 
-        if(checkSelfPermission(Manifest.permission.RECEIVE_SMS) != PackageManager.PERMISSION_GRANTED)
-            requestPermissions(new String[] {Manifest.permission.RECEIVE_SMS}, CODIGO_SMS);
+        //if(checkSelfPermission(Manifest.permission.RECEIVE_SMS) != PackageManager.PERMISSION_GRANTED)
+            //requestPermissions(new String[] {Manifest.permission.RECEIVE_SMS}, CODIGO_SMS);
 
         helper = new FormularioHelper(this);
 
