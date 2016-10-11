@@ -19,5 +19,6 @@ public class MapaActivity extends AppCompatActivity {
         tx.replace(R.id.frame_mapa, new MapaFragment());
         tx.commit();
 
+
     }
 }
