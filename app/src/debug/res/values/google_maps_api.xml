@@ -1,0 +1,21 @@
+<resources>
+    <!--
+    TODO: Before you run your application, you need a Google Maps API key.
+
+    To get one, follow this link, follow the directions and press "Create" at the end:
+
+    https://console.developers.google.com/flows/enableapi?apiid=maps_android_backend&keyType=CLIENT_SIDE_ANDROID&r=78:9F:54:88:8C:49:E1:D4:D6:49:A2:53:54:33:D9:40:63:2B:B1:F5%3Bcom.example.rafae.agenda
+
+    You can also add your credentials to an existing key, using this line:
+    78:9F:54:88:8C:49:E1:D4:D6:49:A2:53:54:33:D9:40:63:2B:B1:F5;com.example.rafae.agenda
+
+    Alternatively, follow the directions here:
+    https://developers.google.com/maps/documentation/android/start#get-key
+
+    Once you have your key (it starts with "AIza"), replace the "google_maps_key"
+    string in this file.
+    -->
+    <string name="google_maps_key" templateMergeStrategy="preserve" translatable="false">
+        AIzaSyBYzvdX_K_1WIX0u8a_x2Y_QKUhbW4W3xY
+    </string>
+</resources>
