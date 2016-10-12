@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/activity_formulario_prova"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <EditText
+            android:id="@+id/formulario_prova_materia"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Matéria"/>
+
+        <EditText
+            android:id="@+id/formulario_prova_data"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Data"/>
+
+        <EditText
+            android:id="@+id/formulario_prova_conteudo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Conteudo"/>
+
+    </LinearLayout>
+
+</RelativeLayout>

@@ -3,12 +3,6 @@
     android:orientation="horizontal"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
-    
-    <ImageView
-        android:layout_width="64dp"
-        android:layout_height="64dp"
-        android:src="@drawable/person"
-        android:id="@+id/item_foto"/>
 
     <LinearLayout
         android:orientation="vertical"
@@ -19,8 +13,8 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/item_nome"
-            android:text="Nome"
+            android:id="@+id/item_list_nome"
+            android:text="Materia"
             android:textSize="20sp"
             android:textStyle="bold"
             android:paddingLeft="10dp"/>
@@ -28,12 +22,12 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/item_telefone"
-            android:text="Telefone"
+            android:id="@+id/item_list_data"
+            android:text="Data"
             android:paddingLeft="10dp"
             android:paddingTop="8dp"
             android:textSize="16sp"/>
 
     </LinearLayout>
-    
+
 </LinearLayout>

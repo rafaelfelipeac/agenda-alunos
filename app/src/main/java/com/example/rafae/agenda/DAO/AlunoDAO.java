@@ -11,6 +11,7 @@ import com.example.rafae.agenda.modelo.Aluno;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.ExecutionException;
 
 /**
  * Created by rafae on 04/10/2016.
@@ -18,23 +19,25 @@ import java.util.List;
 public class AlunoDAO extends SQLiteOpenHelper {
 
     public AlunoDAO(Context context) {
-        super(context, "Agenda", null, 2);
+        super(context, "Agenda", null, 1);
     }
 
     @Override
     public void onCreate(SQLiteDatabase db) {
         String sql = "create table alunos (id integer primary key, nome text not null, endereco text, telefone text, site text, nota real, caminhoFoto text);";
         db.execSQL(sql);
+        sql =        "create table provas (id integer primary key, materia text not null, data text);";
+        db.execSQL(sql);
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-        switch(oldVersion)
-        {
-            case 1:
-                String sql = "alter table alunos add column caminhofoto text";
-                db.execSQL(sql);
-        }
+//        switch(oldVersion)
+//        {
+//            case 1:
+//                String sql = "alter table alunos add column caminhofoto text";
+//                db.execSQL(sql);
+//        }
     }
 
     public void Inserir(Aluno aluno) {
@@ -74,7 +77,7 @@ public class AlunoDAO extends SQLiteOpenHelper {
             aluno.setTelefone(c.getString(c.getColumnIndex("telefone")));
             aluno.setSite(c.getString(c.getColumnIndex("site")));
             aluno.setNota(c.getDouble(c.getColumnIndex("nota")));
-            aluno.setCaminhoFoto(c.getString(c.getColumnIndex("caminhofoto")));
+//            aluno.setCaminhoFoto(c.getString(c.getColumnIndex("caminhofoto")));
 
             alunos.add(aluno);
         }

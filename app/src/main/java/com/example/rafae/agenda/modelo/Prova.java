@@ -12,12 +12,7 @@ public class Prova implements Serializable {
     private String materia;
     private String data;
     private List<String> topicos;
-
-    public Prova(String materia, String data, List<String> topicos) {
-        this.materia = materia;
-        this.data = data;
-        this.topicos = topicos;
-    }
+    private long id;
 
     public String getMateria() {
         return materia;
@@ -45,6 +40,15 @@ public class Prova implements Serializable {
 
     public String toString()
     {
-        return this.materia;
+        return getMateria();
     }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
 }

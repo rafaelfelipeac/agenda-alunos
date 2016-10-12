@@ -12,7 +12,7 @@
          location permissions for the 'MyLocation' functionality. 
     -->
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 
     <application
         android:allowBackup="true"
@@ -38,6 +38,7 @@
         <activity android:name=".ProvasActivity" />
         <activity android:name=".DetalhesProvaActivity" />
         <activity android:name=".ProvasTabletActivity" />
+        <activity android:name=".ListaProvasActivity"/>
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
              (See the file "res/values/google_maps_api.xml").
@@ -50,7 +51,8 @@
             android:name="com.google.android.geo.API_KEY"
             android:value="@string/google_maps_key" />
 
-        <activity android:name=".MapaActivity"></activity>
+        <activity android:name=".MapaActivity" />
+        <activity android:name=".FormularioProvaActivity"></activity>
     </application>
 
 </manifest>

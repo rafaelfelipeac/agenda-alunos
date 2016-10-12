@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -27,13 +28,21 @@ public class ProvasActivity extends AppCompatActivity {
         FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentTransaction tx = fragmentManager.beginTransaction();
 
-        tx.replace(R.id.frame_principal, new ListaProvasFragment());
+        //tx.replace(R.id.frame_principal, new ListaProvasFragment());
 
         if(modoPaisagem()) {
             tx.replace(R.id.frame_secundario, new DetalhesProvaFragment());
         }
 
         tx.commit();
+
+        Button novaProva = (Button) findViewById(R.id.nova_prova);
+        novaProva.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(ProvasActivity.this, "Adicionar prova", Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
     private boolean modoPaisagem() {

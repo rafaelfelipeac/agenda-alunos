@@ -5,8 +5,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.rafae.agenda.modelo.Prova;
 
@@ -32,6 +34,14 @@ public class DetalhesProvaActivity extends AppCompatActivity {
 
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, prova.getTopicos());
         listaTopicos.setAdapter(adapter);
+
+        Button novoConteudo = (Button) findViewById(R.id.novo_conteudo);
+        novoConteudo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(DetalhesProvaActivity.this, "Novo conteudo", Toast.LENGTH_SHORT).show();
+            }
+        });
 
 
     }
