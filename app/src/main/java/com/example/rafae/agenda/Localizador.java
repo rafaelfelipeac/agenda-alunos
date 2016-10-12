@@ -36,7 +36,7 @@ public class Localizador implements GoogleApiClient.ConnectionCallbacks, Locatio
     @Override
     public void onConnected(@Nullable Bundle bundle) {
         LocationRequest request = new LocationRequest();
-        request.setSmallestDisplacement(50);
+        request.setSmallestDisplacement(1);
         request.setInterval(1000);
         request.setPriority(LocationRequest.PRIORITY_HIGH_ACCURACY);
 
@@ -53,5 +53,6 @@ public class Localizador implements GoogleApiClient.ConnectionCallbacks, Locatio
         LatLng coordenada = new LatLng(location.getLatitude(), location.getLongitude());
         CameraUpdate cameraUpdate = CameraUpdateFactory.newLatLng(coordenada);
         mapa.moveCamera(cameraUpdate);
+        mapa.setMyLocationEnabled(true);
     }
 }

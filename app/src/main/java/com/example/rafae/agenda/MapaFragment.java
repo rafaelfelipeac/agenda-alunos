@@ -1,8 +1,10 @@
 package com.example.rafae.agenda;
 
+import android.content.pm.PackageManager;
 import android.location.Address;
 import android.location.Geocoder;
 import android.os.Bundle;
+import android.support.v4.app.ActivityCompat;
 
 import com.example.rafae.agenda.DAO.AlunoDAO;
 import com.example.rafae.agenda.modelo.Aluno;
@@ -35,9 +37,10 @@ public class MapaFragment extends SupportMapFragment implements OnMapReadyCallba
 
 
         LatLng posicaoEscola = pegaCoordenadaDoEndereco("Rua Juvenal Alves Senne 178, Paineiras, Sorocaba");
-        if(posicaoEscola != null) {
+        if (posicaoEscola != null) {
             CameraUpdate update = CameraUpdateFactory.newLatLngZoom(posicaoEscola, 17);
             googleMap.moveCamera(update);
+            googleMap.setMyLocationEnabled(true);
         }
 
         AlunoDAO alunoDAO = new AlunoDAO(getContext());
@@ -47,7 +50,7 @@ public class MapaFragment extends SupportMapFragment implements OnMapReadyCallba
             if(coordenada != null) {
                 MarkerOptions marcador = new MarkerOptions();
                 marcador.position(coordenada);
-                marcador.title(aluno.getNome());
+                marcador.title(aluno.getNome());;
                 marcador.snippet(String.valueOf(aluno.getNota()));
                 googleMap.addMarker(marcador);
             }
