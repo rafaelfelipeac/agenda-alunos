@@ -6,16 +6,26 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.EditText;
+import android.widget.LinearLayout;
+import android.widget.ScrollView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.rafae.agenda.DAO.ProvaDAO;
 import com.example.rafae.agenda.modelo.Prova;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class FormularioProvaActivity extends AppCompatActivity {
 
     private FormularioProvaHelper helper;
     private Prova prova;
+    private int chkId = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,6 +39,23 @@ public class FormularioProvaActivity extends AppCompatActivity {
         if(prova != null) {
             helper.preenche(prova);
         }
+
+        final String idS = "R.id.formulario_prova_btn";
+
+        final LinearLayout ll = (LinearLayout) findViewById(R.id.formulario_prova_ll);
+        Button b = (Button) findViewById(R.id.formulario_prova_btnCheckBox);
+        b.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                EditText campoConteudo = (EditText) findViewById(R.id.formulario_prova_conteudo);
+                CheckBox cb = new CheckBox(FormularioProvaActivity.this);
+                cb.setId(++chkId);
+                cb.setChecked(true);
+                cb.setText(campoConteudo.getText());
+                campoConteudo.setText("");
+                ll.addView(cb);
+            }
+        });
     }
 
     @Override
@@ -59,10 +86,27 @@ public class FormularioProvaActivity extends AppCompatActivity {
 
                 dao.close();
 
+                verificaSelecionados();
+
                 finish();
                 break;
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    public List<String> verificaSelecionados() {
+
+        List<String> lst = new ArrayList<>();
+
+        final LinearLayout ll = (LinearLayout) findViewById(R.id.formulario_prova_ll);
+
+        for(int i = 0; i < ll.getChildCount(); i++) {
+            CheckBox cb = (CheckBox) ll.getChildAt(i);
+            if(cb.isChecked())
+                lst.add(cb.getText().toString());
+        }
+
+        return lst;
     }
 }
