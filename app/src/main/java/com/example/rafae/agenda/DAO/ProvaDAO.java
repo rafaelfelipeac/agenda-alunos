@@ -65,6 +65,7 @@ public class ProvaDAO extends SQLiteOpenHelper{
         SQLiteDatabase db = getReadableDatabase();
         Cursor c =  db.rawQuery(sql, null);
 
+
         while(c.moveToNext())
         {
             Prova prova = new Prova();
