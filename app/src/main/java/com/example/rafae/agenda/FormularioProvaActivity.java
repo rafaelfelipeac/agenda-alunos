@@ -25,7 +25,6 @@ public class FormularioProvaActivity extends AppCompatActivity {
 
     private FormularioProvaHelper helper;
     private Prova prova;
-    private int chkId = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,8 +39,6 @@ public class FormularioProvaActivity extends AppCompatActivity {
             helper.preenche(prova);
         }
 
-        final String idS = "R.id.formulario_prova_btn";
-
         final LinearLayout ll = (LinearLayout) findViewById(R.id.formulario_prova_ll);
         Button b = (Button) findViewById(R.id.formulario_prova_btnCheckBox);
         b.setOnClickListener(new View.OnClickListener() {
@@ -49,7 +46,6 @@ public class FormularioProvaActivity extends AppCompatActivity {
             public void onClick(View v) {
                 EditText campoConteudo = (EditText) findViewById(R.id.formulario_prova_conteudo);
                 CheckBox cb = new CheckBox(FormularioProvaActivity.this);
-                cb.setId(++chkId);
                 cb.setChecked(true);
                 cb.setText(campoConteudo.getText());
                 campoConteudo.setText("");
@@ -86,27 +82,10 @@ public class FormularioProvaActivity extends AppCompatActivity {
 
                 dao.close();
 
-                verificaSelecionados();
-
                 finish();
                 break;
         }
 
         return super.onOptionsItemSelected(item);
-    }
-
-    public List<String> verificaSelecionados() {
-
-        List<String> lst = new ArrayList<>();
-
-        final LinearLayout ll = (LinearLayout) findViewById(R.id.formulario_prova_ll);
-
-        for(int i = 0; i < ll.getChildCount(); i++) {
-            CheckBox cb = (CheckBox) ll.getChildAt(i);
-            if(cb.isChecked())
-                lst.add(cb.getText().toString());
-        }
-
-        return lst;
     }
 }

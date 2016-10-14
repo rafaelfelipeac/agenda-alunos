@@ -25,7 +25,7 @@ public class ProvaDAO extends SQLiteOpenHelper{
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        String sql = "create table provas (id integer primary key, materia text not null, data text);";
+        String sql = "create table provas (id integer primary key, materia text not null, data text, conteudos text);";
         db.execSQL(sql);
     }
 
@@ -39,6 +39,7 @@ public class ProvaDAO extends SQLiteOpenHelper{
         ContentValues dados = new ContentValues();
         dados.put("materia", prova.getMateria());
         dados.put("data", prova.getData());
+        dados.put("conteudos", prova.getConteudos());
 
         return dados;
     }
@@ -63,7 +64,6 @@ public class ProvaDAO extends SQLiteOpenHelper{
         String sql = "select * from provas";
         SQLiteDatabase db = getReadableDatabase();
         Cursor c =  db.rawQuery(sql, null);
-        c.moveToNext();
 
         while(c.moveToNext())
         {
@@ -72,6 +72,7 @@ public class ProvaDAO extends SQLiteOpenHelper{
             prova.setId(c.getLong(c.getColumnIndex("id")));
             prova.setMateria(c.getString(c.getColumnIndex("materia")));
             prova.setData(c.getString(c.getColumnIndex("data")));
+            prova.setConteudos(c.getString(c.getColumnIndex("conteudos")));
 
             provas.add(prova);
         }

@@ -7,7 +7,8 @@
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:padding="10dp">
 
         <EditText
             android:id="@+id/formulario_prova_materia"
@@ -29,9 +30,10 @@
 
         <Button
             android:id="@+id/formulario_prova_btnCheckBox"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Criar checkbox"/>
+            android:layout_gravity="center_horizontal"
+            android:text="Adicionar conteúdo"/>
 
         <LinearLayout
             android:orientation="vertical"

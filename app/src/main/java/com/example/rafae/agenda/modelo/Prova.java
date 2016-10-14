@@ -11,8 +11,17 @@ public class Prova implements Serializable {
 
     private String materia;
     private String data;
-    private List<String> topicos;
+    private String conteudos;
     private long id;
+
+
+    public String getConteudos() {
+        return conteudos;
+    }
+
+    public void setConteudos(String conteudos) {
+        this.conteudos = conteudos;
+    }
 
     public String getMateria() {
         return materia;
@@ -28,14 +37,6 @@ public class Prova implements Serializable {
 
     public void setData(String data) {
         this.data = data;
-    }
-
-    public List<String> getTopicos() {
-        return topicos;
-    }
-
-    public void setTopicos(List<String> topicos) {
-        this.topicos = topicos;
     }
 
     public String toString()

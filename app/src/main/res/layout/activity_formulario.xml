@@ -36,25 +36,29 @@
             android:hint="Nome"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/formulario_nome"/>
+            android:id="@+id/formulario_nome"
+            android:padding="10dp"/>
 
         <EditText
             android:hint="Endereço"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/formulario_endereco"/>
+            android:id="@+id/formulario_endereco"
+            android:padding="10dp"/>
 
         <EditText
             android:hint="Telefone"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/formulario_telefone"/>
+            android:id="@+id/formulario_telefone"
+            android:padding="10dp"/>
 
         <EditText
             android:hint="Site"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/formulario_site"/>
+            android:id="@+id/formulario_site"
+            android:padding="10dp"/>
 
         <RatingBar
             android:layout_width="wrap_content"

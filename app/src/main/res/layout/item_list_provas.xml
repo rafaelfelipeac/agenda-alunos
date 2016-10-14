@@ -8,7 +8,8 @@
         android:orientation="vertical"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
-        android:gravity="center_vertical">
+        android:gravity="center_vertical"
+        android:padding="10dp">
 
         <TextView
             android:layout_width="wrap_content"
@@ -17,7 +18,8 @@
             android:text="Materia"
             android:textSize="20sp"
             android:textStyle="bold"
-            android:paddingLeft="10dp"/>
+            android:paddingLeft="10dp"
+            android:paddingTop="5dp"/>
 
         <TextView
             android:layout_width="wrap_content"
@@ -25,7 +27,7 @@
             android:id="@+id/item_list_data"
             android:text="Data"
             android:paddingLeft="10dp"
-            android:paddingTop="8dp"
+            android:paddingTop="3dp"
             android:textSize="16sp"/>
 
     </LinearLayout>
