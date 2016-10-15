@@ -40,7 +40,17 @@ public class MapaFragment extends SupportMapFragment implements OnMapReadyCallba
         if (posicaoEscola != null) {
             CameraUpdate update = CameraUpdateFactory.newLatLngZoom(posicaoEscola, 17);
             googleMap.moveCamera(update);
-            googleMap.setMyLocationEnabled(true);
+
+            if (ActivityCompat.checkSelfPermission(getContext(), android.Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(getContext(), android.Manifest.permission.ACCESS_COARSE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
+                googleMap.setMyLocationEnabled(true);
+            }
+            else {
+                ActivityCompat.requestPermissions(getActivity(), new String[] {
+                                android.Manifest.permission.ACCESS_FINE_LOCATION,
+                                android.Manifest.permission.ACCESS_COARSE_LOCATION }, 321);
+
+                googleMap.setMyLocationEnabled(true);
+            }
         }
 
         AlunoDAO alunoDAO = new AlunoDAO(getContext());
@@ -57,7 +67,7 @@ public class MapaFragment extends SupportMapFragment implements OnMapReadyCallba
         }
         alunoDAO.close();
 
-        new Localizador(getContext(), googleMap);
+        new Localizador(getContext(), googleMap, getActivity());
     }
 
     private LatLng pegaCoordenadaDoEndereco (String endereco) {
