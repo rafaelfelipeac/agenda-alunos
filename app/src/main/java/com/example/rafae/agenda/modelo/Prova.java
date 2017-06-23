@@ -12,8 +12,26 @@ public class Prova implements Serializable {
     private String materia;
     private String data;
     private String conteudos;
+    private List<String> topicos;
     private long id;
 
+    public Prova(String materia, String data, List<String> topicos) {
+        this.materia = materia;
+        this.data = data;
+        this.topicos = topicos;
+    }
+
+    public Prova () {
+
+    }
+
+    public List<String> getTopicos() {
+        return topicos;
+    }
+
+    public void setTopicos(List<String> topicos) {
+        this.topicos = topicos;
+    }
 
     public String getConteudos() {
         return conteudos;

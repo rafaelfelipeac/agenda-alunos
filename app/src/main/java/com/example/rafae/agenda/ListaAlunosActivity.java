@@ -88,7 +88,7 @@ public class ListaAlunosActivity extends AppCompatActivity {
                 new EnviaAlunosTask(this).execute();
                 break;
             case R.id.menu_baixar_provas:
-                Intent vaiParaProvas = new Intent(this, ListaProvasActivity.class);
+                Intent vaiParaProvas = new Intent(this, ProvasActivity.class);
                 startActivity(vaiParaProvas);
                 break;
             case R.id.menu_mapa:
@@ -109,12 +109,10 @@ public class ListaAlunosActivity extends AppCompatActivity {
             @Override
             public boolean onMenuItemClick(MenuItem item) {
                 if(ActivityCompat.checkSelfPermission(ListaAlunosActivity.this, android.Manifest.permission.CALL_PHONE)
-                        != PackageManager.PERMISSION_GRANTED)
-                {
+                        != PackageManager.PERMISSION_GRANTED) {
                     ActivityCompat.requestPermissions(ListaAlunosActivity.this, new String[]{android.Manifest.permission.CALL_PHONE}, 123);
                 }
-                else
-                {
+                else {
                     Intent intentLigar = new Intent(Intent.ACTION_CALL);
                     intentLigar.setData(Uri.parse("tel:" + aluno.getTelefone()));
                     startActivity(intentLigar);

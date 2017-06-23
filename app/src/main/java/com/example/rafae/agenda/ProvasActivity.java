@@ -17,6 +17,7 @@ import com.example.rafae.agenda.modelo.Prova;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.StringTokenizer;
 
 public class ProvasActivity extends AppCompatActivity {
 
@@ -28,21 +29,14 @@ public class ProvasActivity extends AppCompatActivity {
         FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentTransaction tx = fragmentManager.beginTransaction();
 
-        //tx.replace(R.id.frame_principal, new ListaProvasFragment());
+        tx.replace(R.id.frame_principal, new ListaProvasFragment());
 
         if(modoPaisagem()) {
             tx.replace(R.id.frame_secundario, new DetalhesProvaFragment());
         }
 
-        tx.commit();
 
-        Button novaProva = (Button) findViewById(R.id.nova_prova);
-        novaProva.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(ProvasActivity.this, "Adicionar prova", Toast.LENGTH_SHORT).show();
-            }
-        });
+        tx.commit();
     }
 
     private boolean modoPaisagem() {
@@ -50,23 +44,21 @@ public class ProvasActivity extends AppCompatActivity {
     }
 
     public void selecionaProva(Prova prova) {
-
         FragmentManager manager = getSupportFragmentManager();
-
         if(!modoPaisagem()) {
             FragmentTransaction tx = manager.beginTransaction();
 
-            DetalhesProvaFragment detalhesFragment = new DetalhesProvaFragment();
             Bundle parametros = new Bundle();
             parametros.putSerializable("prova", prova);
+            DetalhesProvaFragment detalhesFragment = new DetalhesProvaFragment();
             detalhesFragment.setArguments(parametros);
 
-            tx.replace(R.id.frame_principal, detalhesFragment);
+            tx.replace(R.id.frame_principal,  detalhesFragment);
+
             tx.addToBackStack(null);
 
             tx.commit();
-        }
-        else {
+        } else {
             DetalhesProvaFragment detalhesFragment = (DetalhesProvaFragment) manager.findFragmentById(R.id.frame_secundario);
             detalhesFragment.populaCamposCom(prova);
         }

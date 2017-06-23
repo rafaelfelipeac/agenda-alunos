@@ -43,7 +43,7 @@ public class DetalhesProvaFragment extends Fragment {
         campoMateria.setText(prova.getMateria());
         campoData.setText(prova.getData());
 
-        //ArrayAdapter<String> adapterTopicos = new ArrayAdapter<String>(getContext(), android.R.layout.simple_list_item_1, prova.getTopicos());
-        //listaTopicos.setAdapter(adapterTopicos);
+        ArrayAdapter<String> adapterTopicos = new ArrayAdapter<String>(getContext(), android.R.layout.simple_list_item_1, prova.getTopicos());
+        listaTopicos.setAdapter(adapterTopicos);
     }
 }

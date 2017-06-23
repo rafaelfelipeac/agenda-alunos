@@ -32,8 +32,8 @@ public class DetalhesProvaActivity extends AppCompatActivity {
 
         ListView listaTopicos = (ListView) findViewById(R.id.detalhes_prova_topico);
 
-        //ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, prova.getTopicos());
-        //listaTopicos.setAdapter(adapter);
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, prova.getTopicos());
+        listaTopicos.setAdapter(adapter);
 
         Button novoConteudo = (Button) findViewById(R.id.novo_conteudo);
         novoConteudo.setOnClickListener(new View.OnClickListener() {
