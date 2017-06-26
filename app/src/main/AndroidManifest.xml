@@ -39,7 +39,7 @@
         <activity android:name=".ProvasActivity" />
         <activity android:name=".DetalhesProvaActivity" />
         <activity android:name=".ProvasTabletActivity" />
-        <activity android:name=".ListaProvasActivity"/>
+        <activity android:name=".ListaProvasActivity" />
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
              (See the file "res/values/google_maps_api.xml").
@@ -51,8 +51,12 @@
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="@string/google_maps_key" />
+
         <activity android:name=".MapaActivity" />
-        <activity android:name=".FormularioProvaActivity"></activity>
+        <activity android:name=".FormularioProvaActivity" />
+        <activity
+            android:name=".MapsActivity"
+            android:label="@string/title_activity_maps"></activity>
     </application>
 
 </manifest>

@@ -34,28 +34,26 @@ public class MapaFragment extends SupportMapFragment implements OnMapReadyCallba
 
     @Override
     public void onMapReady(GoogleMap googleMap) {
-
-
         LatLng posicaoEscola = pegaCoordenadaDoEndereco("Rua Juvenal Alves Senne 178, Paineiras, Sorocaba");
+
         if (posicaoEscola != null) {
             CameraUpdate update = CameraUpdateFactory.newLatLngZoom(posicaoEscola, 17);
             googleMap.moveCamera(update);
 
-            if (ActivityCompat.checkSelfPermission(getContext(), android.Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(getContext(), android.Manifest.permission.ACCESS_COARSE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
-                googleMap.setMyLocationEnabled(true);
-            }
-            else {
-                ActivityCompat.requestPermissions(getActivity(), new String[] {
-                                android.Manifest.permission.ACCESS_FINE_LOCATION,
-                                android.Manifest.permission.ACCESS_COARSE_LOCATION }, 321);
-
-                googleMap.setMyLocationEnabled(true);
-            }
+//            if (ActivityCompat.checkSelfPermission(getContext(), android.Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(getContext(), android.Manifest.permission.ACCESS_COARSE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
+//                googleMap.setMyLocationEnabled(true);
+//            }
+//            else {
+//                ActivityCompat.requestPermissions(getActivity(), new String[] {
+//                                android.Manifest.permission.ACCESS_FINE_LOCATION,
+//                                android.Manifest.permission.ACCESS_COARSE_LOCATION }, 321);
+//
+//                googleMap.setMyLocationEnabled(true);
+//            }
         }
 
         AlunoDAO alunoDAO = new AlunoDAO(getContext());
-        for(Aluno aluno : alunoDAO.Buscar())
-        {
+        for(Aluno aluno : alunoDAO.Buscar())         {
             LatLng coordenada = pegaCoordenadaDoEndereco(aluno.getEndereco());
             if(coordenada != null) {
                 MarkerOptions marcador = new MarkerOptions();

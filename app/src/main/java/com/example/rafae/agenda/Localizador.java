@@ -21,6 +21,7 @@ import com.google.android.gms.maps.model.LatLng;
  * Created by rafae on 11/10/2016.
  */
 
+
 public class Localizador implements GoogleApiClient.ConnectionCallbacks, LocationListener {
     private final GoogleApiClient cliente;
     private final GoogleMap mapa;
@@ -43,7 +44,7 @@ public class Localizador implements GoogleApiClient.ConnectionCallbacks, Locatio
     @Override
     public void onConnected(@Nullable Bundle bundle) {
         LocationRequest request = new LocationRequest();
-        request.setSmallestDisplacement(1);
+        request.setSmallestDisplacement(1); // aumentar esse valor
         request.setInterval(1000);
         request.setPriority(LocationRequest.PRIORITY_HIGH_ACCURACY);
 
