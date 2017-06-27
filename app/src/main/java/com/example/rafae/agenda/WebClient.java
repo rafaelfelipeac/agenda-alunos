@@ -1,5 +1,7 @@
 package com.example.rafae.agenda;
 
+import android.support.annotation.Nullable;
+
 import java.io.IOException;
 import java.io.PrintStream;
 import java.net.HttpURLConnection;
@@ -13,8 +15,15 @@ import java.util.Scanner;
 
 public class WebClient {
     public String post(String json){
+        String endereco = "https://www.caelum.com.br/mobile";
+
+        return realizaConexao(json, endereco);
+    }
+
+    @Nullable
+    private String realizaConexao(String json, String endereco) {
         try {
-            URL url = new URL("https://www.caelum.com.br/mobile");
+            URL url = new URL(endereco);
             HttpURLConnection connnection = (HttpURLConnection) url.openConnection();
             connnection.setRequestProperty("Content-type", "application/json");
             connnection.setRequestProperty("Accept", "application/json");
@@ -27,7 +36,6 @@ public class WebClient {
             connnection.connect();
 
             Scanner scanner = new Scanner(connnection.getInputStream());
-            //Scanner scanner = new Scanner(connection.getOutputStream());
 
             String resposta = scanner.next();
 
@@ -39,5 +47,10 @@ public class WebClient {
         }
 
         return null;
+    }
+
+    public void Insert(String json) {
+        String endereco = "http://192.168.0.2:8080/api/aluno";
+        realizaConexao(json, endereco);
     }
 }

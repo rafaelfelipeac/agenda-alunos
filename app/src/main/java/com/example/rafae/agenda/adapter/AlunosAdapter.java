@@ -9,11 +9,9 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
-import com.example.rafae.agenda.ListaAlunosActivity;
+
 import com.example.rafae.agenda.R;
 import com.example.rafae.agenda.modelo.Aluno;
-
-import org.w3c.dom.Text;
 
 import java.util.List;
 

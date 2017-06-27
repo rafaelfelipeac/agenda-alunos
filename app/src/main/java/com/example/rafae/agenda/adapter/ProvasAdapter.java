@@ -7,9 +7,7 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
-import com.example.rafae.agenda.ListaProvasActivity;
 import com.example.rafae.agenda.R;
-import com.example.rafae.agenda.modelo.Aluno;
 import com.example.rafae.agenda.modelo.Prova;
 
 import java.util.List;
