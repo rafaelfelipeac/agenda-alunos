@@ -8,6 +8,7 @@ import android.os.Build;
 import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -19,9 +20,12 @@ import com.example.rafae.agenda.DAO.AlunoDAO;
 import com.example.rafae.agenda.helper.FormularioHelper;
 import com.example.rafae.agenda.R;
 import com.example.rafae.agenda.modelo.Aluno;
-import com.example.rafae.agenda.tasks.InsereAlunoTask;
-
+import com.example.rafae.agenda.retrofit.RetrofitInitiate;
 import java.io.File;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class FormularioActivity extends AppCompatActivity {
 
@@ -99,7 +103,18 @@ public class FormularioActivity extends AppCompatActivity {
                 }
                 dao.close();
 
-                new InsereAlunoTask(aluno).execute();
+                Call call = new RetrofitInitiate().getAlunoService().insert(aluno);
+                call.enqueue(new Callback() {
+                    @Override
+                    public void onResponse(Call call, Response response) {
+                        Log.i("onResponse", "requisicao com sucesso");
+                    }
+
+                    @Override
+                    public void onFailure(Call call, Throwable throwable) {
+                        Log.e("onFailure", "requisicao falhou");
+                    }
+                }); // async
 
                 finish();
                 break;

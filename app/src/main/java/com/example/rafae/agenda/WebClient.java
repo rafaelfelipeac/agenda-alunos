@@ -48,9 +48,4 @@ public class WebClient {
 
         return null;
     }
-
-    public void Insert(String json) {
-        String endereco = "http://192.168.0.2:8080/api/aluno";
-        realizaConexao(json, endereco);
-    }
 }
