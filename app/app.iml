@@ -107,7 +107,6 @@
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" exported="" name="play-services-10.0.1" level="project" />
     <orderEntry type="library" exported="" name="play-services-cast-10.0.1" level="project" />
-    <orderEntry type="library" exported="" name="okio-1.8.0" level="project" />
     <orderEntry type="library" exported="" name="play-services-nearby-10.0.1" level="project" />
     <orderEntry type="library" exported="" name="firebase-config-10.0.1" level="project" />
     <orderEntry type="library" exported="" name="play-services-tagmanager-v4-impl-10.0.1" level="project" />
@@ -137,7 +136,6 @@
     <orderEntry type="library" exported="" name="animated-vector-drawable-25.0.1" level="project" />
     <orderEntry type="library" exported="" name="play-services-basement-10.0.1" level="project" />
     <orderEntry type="library" exported="" name="firebase-database-10.0.1" level="project" />
-    <orderEntry type="library" exported="" name="okhttp-3.3.0" level="project" />
     <orderEntry type="library" exported="" name="appcompat-v7-25.0.1" level="project" />
     <orderEntry type="library" exported="" name="play-services-gcm-10.0.1" level="project" />
     <orderEntry type="library" exported="" name="play-services-games-10.0.1" level="project" />
@@ -159,6 +157,7 @@
     <orderEntry type="library" exported="" name="firebase-storage-10.0.1" level="project" />
     <orderEntry type="library" exported="" name="support-annotations-25.0.1" level="project" />
     <orderEntry type="library" exported="" name="play-services-tagmanager-api-10.0.1" level="project" />
+    <orderEntry type="library" exported="" name="okio-1.13.0" level="project" />
     <orderEntry type="library" exported="" name="play-services-iid-10.0.1" level="project" />
     <orderEntry type="library" exported="" name="play-services-tagmanager-10.0.1" level="project" />
     <orderEntry type="library" exported="" name="firebase-analytics-impl-10.0.1" level="project" />
@@ -167,6 +166,7 @@
     <orderEntry type="library" exported="" name="firebase-messaging-10.0.1" level="project" />
     <orderEntry type="library" exported="" name="play-services-instantapps-10.0.1" level="project" />
     <orderEntry type="library" exported="" name="support-compat-25.0.1" level="project" />
+    <orderEntry type="library" exported="" name="okhttp-3.8.1" level="project" />
     <orderEntry type="library" exported="" name="support-v4-25.0.1" level="project" />
     <orderEntry type="library" exported="" name="play-services-panorama-10.0.1" level="project" />
     <orderEntry type="library" exported="" name="multidex-1.0.1" level="project" />
@@ -175,6 +175,7 @@
     <orderEntry type="library" exported="" name="play-services-safetynet-10.0.1" level="project" />
     <orderEntry type="library" exported="" name="support-media-compat-25.0.1" level="project" />
     <orderEntry type="library" exported="" name="support-vector-drawable-25.0.1" level="project" />
+    <orderEntry type="library" exported="" name="logging-interceptor-3.8.1" level="project" />
     <orderEntry type="library" exported="" name="mediarouter-v7-24.0.0" level="project" />
   </component>
 </module>
