@@ -16,11 +16,18 @@ import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Toast;
 import com.example.rafae.agenda.DAO.AlunoDAO;
+import com.example.rafae.agenda.retrofit.RetrofitInitiate;
 import com.example.rafae.agenda.tasks.EnviaAlunosTask;
 import com.example.rafae.agenda.R;
 import com.example.rafae.agenda.adapter.AlunosAdapter;
 import com.example.rafae.agenda.modelo.Aluno;
+import com.example.rafae.dto.AlunoSync;
+
 import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class ListaAlunosActivity extends AppCompatActivity {
 
@@ -73,6 +80,27 @@ public class ListaAlunosActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
+
+        Call<AlunoSync> call = new RetrofitInitiate().getAlunoService().lista();
+        call.enqueue(new Callback<AlunoSync>() {
+            @Override
+            public void onResponse(Call<AlunoSync> call, Response<AlunoSync> response) {
+                AlunoSync alunoSync = response.body();
+                List<Aluno> alunos = alunoSync.getAlunos();
+                AlunoDAO dao = new AlunoDAO(ListaAlunosActivity.this);
+
+                dao.Sync(alunos);
+
+                dao.close();
+                carregaLista();
+            }
+
+            @Override
+            public void onFailure(Call<AlunoSync> call, Throwable t) {
+                Log.e("onFailure", t.getMessage());
+            }
+        });
+
         carregaLista();
     }
 

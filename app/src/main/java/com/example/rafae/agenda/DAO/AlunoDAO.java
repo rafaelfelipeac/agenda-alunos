@@ -8,6 +8,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 import android.support.annotation.NonNull;
 
 import com.example.rafae.agenda.modelo.Aluno;
+import com.google.android.gms.nearby.messages.internal.Update;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -33,7 +34,7 @@ public class AlunoDAO extends SQLiteOpenHelper {
                 "caminhoFoto TEXT);";
         db.execSQL(sql);
 
-        sql =        "create table provas (id integer primary key, materia text not null, data text, conteudos text);";
+        sql = "create table provas (id integer primary key, materia text not null, data text, conteudos text);";
         db.execSQL(sql);
 
     }
@@ -86,16 +87,18 @@ public class AlunoDAO extends SQLiteOpenHelper {
     public void Inserir(Aluno aluno) {
         SQLiteDatabase db = getWritableDatabase();
 
+        if(aluno.getId() == null)
+            aluno.setId(generateUUID());
+
         ContentValues dados = getContentValuesAluno(aluno);
 
         db.insert("Alunos", null, dados);
-        //aluno.setId(id);
-
     }
 
     @NonNull
     private ContentValues getContentValuesAluno(Aluno aluno) {
         ContentValues dados = new ContentValues();
+        dados.put("id", aluno.getId());
         dados.put("nome", aluno.getNome());
         dados.put("endereco", aluno.getEndereco());
         dados.put("telefone", aluno.getTelefone());
@@ -160,5 +163,24 @@ public class AlunoDAO extends SQLiteOpenHelper {
         c.close();
 
         return results;
+    }
+
+    public void Sync(List<Aluno> alunos) {
+        for (Aluno aluno: alunos) {
+            if(existe(aluno)) {
+                Alterar(aluno);
+            }
+            else {
+                Inserir(aluno);
+            }
+        }
+    }
+
+    private boolean existe(Aluno aluno) {
+        SQLiteDatabase db = getReadableDatabase();
+        String sql = "SELECT id FROM Alunos WHERE id = ? LIMIT 1";
+        Cursor cursor = db.rawQuery(sql, new String[]{aluno.getId()});
+
+        return cursor.getCount() > 0;
     }
 }
