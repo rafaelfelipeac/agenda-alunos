@@ -17,6 +17,7 @@ import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Toast;
 import com.example.rafae.agenda.DAO.AlunoDAO;
+import com.example.rafae.agenda.events.AtualizarListaAlunoEvent;
 import com.example.rafae.agenda.retrofit.RetrofitInitiate;
 import com.example.rafae.agenda.tasks.EnviaAlunosTask;
 import com.example.rafae.agenda.R;
@@ -26,6 +27,9 @@ import com.example.rafae.dto.AlunoSync;
 
 import java.util.List;
 
+import de.greenrobot.event.EventBus;
+import de.greenrobot.event.Subscribe;
+import de.greenrobot.event.ThreadMode;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -39,6 +43,9 @@ public class ListaAlunosActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lista_alunos);
+
+        EventBus eventBus = EventBus.getDefault();
+        eventBus.register(this);
 
         listaAlunos = (ListView) findViewById(R.id.lista_alunos);
         swipe = (SwipeRefreshLayout) findViewById(R.id.swipe_ListaAluno);
@@ -73,6 +80,11 @@ public class ListaAlunosActivity extends AppCompatActivity {
         registerForContextMenu(listaAlunos);
 
         buscaAlunos();
+    }
+
+    @Subscribe(threadMode = ThreadMode.MainThread)
+    public void AtualizarListaAlunoEvent(AtualizarListaAlunoEvent event) {
+        carregaLista();
     }
 
     private void carregaLista() {

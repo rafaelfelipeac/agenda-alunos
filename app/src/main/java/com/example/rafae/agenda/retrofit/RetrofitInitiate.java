@@ -1,6 +1,7 @@
 package com.example.rafae.agenda.retrofit;
 
 import com.example.rafae.agenda.services.AlunoService;
+import com.example.rafae.agenda.services.DispositivoService;
 
 import okhttp3.OkHttpClient;
 import okhttp3.logging.HttpLoggingInterceptor;
@@ -32,5 +33,9 @@ public class RetrofitInitiate {
 
     public AlunoService getAlunoService() {
         return retrofit.create(AlunoService.class);
+    }
+
+    public DispositivoService getDispositivoService() {
+        return retrofit.create(DispositivoService.class);
     }
 }

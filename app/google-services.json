@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "445713682175",
+    "firebase_url": "https://agenda-sync-c3fca.firebaseio.com",
+    "project_id": "agenda-sync-c3fca",
+    "storage_bucket": "agenda-sync-c3fca.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:445713682175:android:55e94066c4ec2395",
+        "android_client_info": {
+          "package_name": "com.example.rafae.agenda"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "445713682175-u0gev1b53kmav0g13tjvk2bbausiudln.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.rafae.agenda",
+            "certificate_hash": "3bc78c81840780b338527ebd15f8d5ae51673955"
+          }
+        },
+        {
+          "client_id": "445713682175-sjmrphah1habu3niam1q2i5qoo0vibv8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA9kfx8E10z9GAiu1MKXhnJtQolGw6_7EU"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "445713682175-sjmrphah1habu3niam1q2i5qoo0vibv8.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

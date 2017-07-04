@@ -51,7 +51,7 @@ public class AlunoDAO extends SQLiteOpenHelper {
                         "telefone TEXT, " +
                         "site TEXT, " +
                         "nota REAL, " +
-                        "caminhofoto TEXT);";
+                        "caminhoFoto TEXT);";
                 db.execSQL(newTablesql);
 
                 String insertAlunos_new = "INSERT INTO Alunos_novo " +
@@ -168,9 +168,14 @@ public class AlunoDAO extends SQLiteOpenHelper {
     public void Sync(List<Aluno> alunos) {
         for (Aluno aluno: alunos) {
             if(existe(aluno)) {
-                Alterar(aluno);
+                if(!aluno.isActive()) {
+                    Remover(aluno);
+                }
+                else {
+                    Alterar(aluno);
+                }
             }
-            else {
+            else if(aluno.isActive()) {
                 Inserir(aluno);
             }
         }
