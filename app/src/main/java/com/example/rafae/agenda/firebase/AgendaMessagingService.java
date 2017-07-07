@@ -5,6 +5,7 @@ import android.util.Log;
 import com.example.rafae.agenda.DAO.AlunoDAO;
 import com.example.rafae.agenda.events.AtualizarListaAlunoEvent;
 import com.example.rafae.agenda.modelo.Aluno;
+import com.example.rafae.agenda.sinc.AlunoSincronizador;
 import com.example.rafae.dto.AlunoSync;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.firebase.messaging.FirebaseMessagingService;
@@ -40,9 +41,7 @@ public class AgendaMessagingService extends FirebaseMessagingService {
             try {
                 AlunoSync alunoSync = mapper.readValue(json, AlunoSync.class);
 
-                AlunoDAO alunoDAO = new AlunoDAO(this);
-                alunoDAO.Sync(alunoSync.getAlunos());
-                alunoDAO.close();
+                new AlunoSincronizador(AgendaMessagingService.this).sincroniza(alunoSync);
 
                 EventBus eventBus = EventBus.getDefault();
                 eventBus.post(new AtualizarListaAlunoEvent());
